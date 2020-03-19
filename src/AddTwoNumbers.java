@@ -1,4 +1,8 @@
-public class AddTwoNumbers {
+
+class AddTwoNumbers {
+    public static void main(String[] args) {
+    }
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return sumListNode(l1, l2, 0);
     }
@@ -20,14 +24,15 @@ public class AddTwoNumbers {
         System.out.print(sumNode.val);
         return sumNode;
     }
-}
 
 
-class ListNode {
-    int val;
-    ListNode next;
+    static class ListNode {
+        int val;
+        ListNode next;
 
-    ListNode(int x) {
-        val = x;
+        ListNode(int x) {
+            val = x;
+        }
     }
+
 }
