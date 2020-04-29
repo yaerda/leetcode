@@ -9,7 +9,7 @@ public class ReverseInteger {
 
     private static void reverse(Integer x) {
         if (x == Integer.MIN_VALUE) {
-            System.out.println(0);
+            System.out.println("iput: " + x + " output:" + 0);
             return;
         }
         boolean sub = x < 0;
@@ -33,19 +33,17 @@ public class ReverseInteger {
         System.out.println("iput: " + x + " output:" + Integer.valueOf(output.trim()));
     }
 
-    private static int reverse2(Integer x) {
+    private static int reverse2(int x) {
         int result = 0;
-
         while (x != 0) {
-            int tail = x % 10;
-            int newResult = result * 10 + tail;
-            if ((newResult - tail) / 10 != result) {
+            int temp = x % 10;
+            int tempResult = result * 10 + temp;
+            if ((tempResult - temp) / 10 != result) {
                 return 0;
             }
-            result = newResult;
             x = x / 10;
+            result = tempResult;
         }
-
         return result;
     }
 }
