@@ -1,9 +1,15 @@
-public class ShellSort {
-    public static void main(String[] args) {
-        int[] list = {2, 3, 5, 69, 21, 52, 65, 1, 56, 7, 2, 7};
-        for (int i = 0; i < list.length; i++) {
-            System.out.print(list[i] + ",");
-        }
+package sort;
+
+public class ShellSort extends Sort {
+
+    @Override
+    void init() {
+        this.setName("希尔排序");
+    }
+
+    @Override
+    void doSort() {
+        int[] list = getList();
         int l = list.length;
         int h = 1;
         while (h < l / 3) {
@@ -19,9 +25,6 @@ public class ShellSort {
             }
             h = h / 3;
         }
-        System.out.println();
-        for (int i = 0; i < list.length; i++) {
-            System.out.print(list[i] + ",");
-        }
+        setResult(list);
     }
 }
