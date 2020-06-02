@@ -14,8 +14,18 @@ public class LongestCommonPrefix {
                 str1, str2, str3, str4, str5
         );
         for (String[] strings : strsList) {
-            System.out.println(findLong(strings));
+            System.out.println(findLong2(strings));
         }
+    }
+
+    private static String findLong2(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+        String pre = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(pre)) pre = pre.substring(0, pre.length() - 1);
+            if (pre.length() == 0) break;
+        }
+        return pre;
     }
 
     private static String findLong(String[] strs) {
