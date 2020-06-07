@@ -16,6 +16,18 @@ public class LongestCommonPrefix {
         for (String[] strings : strsList) {
             System.out.println(findLong2(strings));
         }
+        StringBuilder sb = new StringBuilder("ipthon");
+        test(sb);
+        System.out.println(sb);
+    }
+
+    private static void test(StringBuilder builder) {
+        builder.append("4");
+        test2(builder);
+    }
+
+    private static void test2(StringBuilder builder) {
+        builder.append("3");
     }
 
     private static String findLong2(String[] strs) {
