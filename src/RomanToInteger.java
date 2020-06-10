@@ -13,7 +13,12 @@ public class RomanToInteger {
         }
     }
 
-    private static final Map<Character, Integer> ROMAN = new HashMap<>() {
+    private static final Map<Character, Integer> ROMAN = new HashMap<Character, Integer>() {
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
+
         {
             put('I', 1);
             put('V', 5);

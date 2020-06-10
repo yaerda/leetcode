@@ -13,6 +13,7 @@ public class ThreeSum {
         sumList.add(Arrays.asList(-1, 0, 1, 2, -1, -4));
         sumList.add(Arrays.asList(-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6));
         sumList.forEach(o -> System.out.println(threeSum2(o.stream().mapToInt(Integer::valueOf).toArray())));
+        sumList.forEach(o -> System.out.println(threeSum(o.stream().mapToInt(Integer::valueOf).toArray())));
     }
 
     private static List<List<Integer>> threeSum2(int[] nums) {

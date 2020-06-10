@@ -3,7 +3,7 @@ package sort;
 public abstract class Sort {
     private int[] list;
     private String name;
-
+    
     Sort() {
         this.list = new int[]{2, 3, 5, 69, 21, 52, 65, 1, 56, 7, 2, 7};
         this.init();

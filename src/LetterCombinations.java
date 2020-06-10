@@ -2,10 +2,17 @@ import java.util.*;
 
 public class LetterCombinations {
     public static void main(String[] args) {
+        System.out.println(combination3("234"));
         System.out.println(combination2("234"));
+        System.out.println(combination("234"));
     }
 
-    private static final Map<Character, List<String>> DIGIT_MAP = new HashMap<>() {{
+    private static final Map<Character, List<String>> DIGIT_MAP = new HashMap<Character, List<String>>() {
+        /**
+        *
+        */
+        private static final long serialVersionUID = 1L;
+        {   
         put('2', Arrays.asList("a", "b", "c"));
         put('3', Arrays.asList("d", "e", "f"));
         put('4', Arrays.asList("g", "h", "i"));
@@ -15,6 +22,26 @@ public class LetterCombinations {
         put('8', Arrays.asList("t", "u", "v"));
         put('9', Arrays.asList("w", "x", "y", "z"));
     }};
+
+    private static List<String> combination3(String digits) {
+        String[] digtiMap = { "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        LinkedList<String> str = new LinkedList<String>();
+        if (digits.isEmpty())
+                return str;
+        str.add("");
+        for (char c : digits.toCharArray()) {
+                String digitStr = digtiMap[c - '2'];
+                int size = str.size();
+                for (int i = 0; i < size; i++) {
+                        String s = str.remove();
+                        for (char tempC : digitStr.toCharArray()) {
+                                str.add(s + tempC);
+                        }
+                }
+        }
+        return str;
+
+}
 
     private static List<String> combination2(String digits) {
         LinkedList<String> stringList = new LinkedList<>();
