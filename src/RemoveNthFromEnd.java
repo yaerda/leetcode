@@ -2,16 +2,14 @@ public class RemoveNthFromEnd {
 
     public static void main(String[] args) {
         LinkNode head = new LinkNode(6);
-        System.out.println(head);
 
         for (int i = 1; i <= 5; i++) {
             LinkNode next = head.next;
             head.next = new LinkNode(i);
             head.next.next = next;
-            System.out.println(head);
         }
         System.out.println(head);
-        System.out.println(removeNth(head, 2));
+        System.out.println(removeNth(head, 3));
     }
 
     private static LinkNode removeNth(LinkNode head, int n) {
