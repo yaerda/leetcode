@@ -1,17 +1,43 @@
 package dataObj;
 
 public class ListNode {
-    public int val;
+    public Integer val;
     public ListNode next;
 
     public ListNode() {
     }
 
-    public ListNode(int val) {
+//    public ListNode(Integer[] nums) {
+//        ListNode n = null;
+//        n = this;
+//        for (int num : nums) {
+//            if (n.val == null) {
+//                n.val = num;
+//            } else {
+//                n.next = new ListNode(num);
+//                n = n.next;
+//            }
+//        }
+//    }
+
+    public ListNode(Integer... nums) {
+        ListNode n = null;
+        n = this;
+        for (int num : nums) {
+            if (n.val == null) {
+                n.val = num;
+            } else {
+                n.next = new ListNode(num);
+                n = n.next;
+            }
+        }
+    }
+
+    public ListNode(Integer val) {
         this.val = val;
     }
 
-    public ListNode(int val, ListNode node) {
+    public ListNode(Integer val, ListNode node) {
         this.next = node;
         this.val = val;
     }
