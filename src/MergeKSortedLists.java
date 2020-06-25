@@ -21,10 +21,34 @@ import java.util.*;
 
 public class MergeKSortedLists {
     public static void main(String[] args) {
-        Solution solution = new MergeKSortedLists().new Solution();
-        ListNode[] listNodes = new ListNode[]{new ListNode(1, 2, 3), new ListNode(2, 3, 4), new ListNode(3, 4, 5)};
-        System.out.println(solution.mergeKLists(listNodes));
+//        Solution solution = new MergeKSortedLists().new Solution();
+//        ListNode[] listNodes = new ListNode[]{new ListNode(1, 2, 3), new ListNode(2, 3, 4), new ListNode(3, 4, 5)};
+//        System.out.println(solution.mergeKLists(listNodes));
+        sort();
+
     }
+
+    private static String[] psn = new String[]{"A", "B", "C"};
+
+    private static void sort() {
+        for (int i = 0; i < 3; i++) {
+            pick(1, i, "");
+        }
+    }
+
+    private static void pick(int day, int p, String s) {
+
+        if (day < 7) {
+            for (int j = 0; j < 3; j++) {
+                if (p != j && s.split(psn[j]).length < 3) {
+                    pick(day++, j, s + psn[p]);
+                }
+            }
+        }else {
+            System.out.println(s);
+        }
+    }
+
     //leetcode submit region begin(Prohibit modification and deletion)
 
     /**
