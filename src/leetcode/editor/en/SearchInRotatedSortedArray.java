@@ -31,7 +31,7 @@ public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
         Solution solution = new SearchInRotatedSortedArray().new Solution();
         int[] array = {4, 5, 6, 7, 0, 1, 2};
-        System.out.println(solution.search(array, 4));
+//        System.out.println(solution.search(array, 4));
         int[] array2 = {3, 1};
         System.out.println(solution.search2(array2, 1));
 
@@ -72,6 +72,11 @@ public class SearchInRotatedSortedArray {
                 int mid = left + (right - left) / 2;
                 if (nums[mid] == target) return mid;
                 if (nums[mid] >= nums[left]) {  //考虑长度为2的数组时，mid = left = 0的情况
+                    //总结：如果是和左边比的话，由于mid 会和 左边重合，所以mid 和 left判断时用大于等于，
+                    //让程序走进这个分支
+                    //因为在这个分支里，left 小于等于 target 和 mid 大于 target 不可能在 数组长度为2的情况下同时出现
+                    //此时 mid 是等于 left 等于 0的
+                    //所以程序必然走到left = mid +1 ，走到右半边再判断一下right 等不等于 target
                     if (nums[left] <= target && nums[mid] > target) right = mid - 1;
                     else left = mid + 1;
                 } else {

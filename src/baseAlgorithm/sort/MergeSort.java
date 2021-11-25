@@ -1,4 +1,4 @@
-package sort;
+package baseAlgorithm.sort;
 
 public class MergeSort extends Sort {
     @Override

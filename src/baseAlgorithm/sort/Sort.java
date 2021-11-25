@@ -1,4 +1,4 @@
-package sort;
+package baseAlgorithm.sort;
 
 public abstract class Sort {
     private int[] list;
