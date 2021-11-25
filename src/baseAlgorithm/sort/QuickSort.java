@@ -27,9 +27,9 @@ public class QuickSort {
             while (nums[i] <= p && i < j) {
                 i++;
             }
-            swap(nums, i, j);
+            Tool.swap(nums, i, j);
         }
-        swap(nums, lo, i);
+        Tool.swap(nums, lo, i);
         return i;
     }
 
@@ -38,17 +38,11 @@ public class QuickSort {
         int p = nums[lo], index = lo + 1;
         for (int i = index; i <= hi; i++) {
             if (nums[i] < p) {
-                swap(nums, i, index++);
+                Tool.swap(nums, i, index++);
             }
         }
-        swap(nums, lo, index - 1); // index -1 因为index++已超出到大于p的地方，所以-1后才可以做中间pivot
+        Tool.swap(nums, lo, index - 1); // index -1 因为index++已超出到大于p的地方，所以-1后才可以做中间pivot
         return index - 1;
-    }
-
-    private static void swap(int[] nums, int a, int b) {
-        int temp = nums[a];
-        nums[a] = nums[b];
-        nums[b] = temp;
     }
 
 
