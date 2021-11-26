@@ -13,14 +13,17 @@ public class QuickSelect {
 
     /**
      * @param nums: int array
-     * @param k:    kth biggest
+     * @param k:    kth biggest [lo,hi]
      * @return the num
      */
     private int quickSelect(int[] nums, int lo, int hi, int k) {
+        if (k < 1 || k > nums.length) {
+            throw new RuntimeException("The k [" + k + "] is out of range");
+        }
         int pivot = partion(nums, lo, hi);
-        if (pivot == nums.length - k) {
+        if (nums.length - k == pivot) {
             return nums[pivot];
-        } else if (pivot < nums.length - k) {
+        } else if (nums.length - k > pivot) {
             return quickSelect(nums, pivot + 1, hi, k);
         } else {
             return quickSelect(nums, lo, pivot - 1, k);
@@ -37,4 +40,6 @@ public class QuickSelect {
         Tool.swap(nums, lo, index - 1);
         return index - 1;
     }
+
+
 }

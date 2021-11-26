@@ -1,8 +1,19 @@
 package tool;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Tool {
+
+
+    public static void print(String s) {
+        System.out.println(s);
+    }
+
+    public static void print(Object s) {
+        System.out.println(s);
+    }
+
     public static <T> void print(T[] array) {
         if (array == null) {
             System.out.println("null");
@@ -19,6 +30,14 @@ public class Tool {
 
     public static void print(int[] array) {
         print(Arrays.stream(array).boxed().toArray());
+    }
+
+    public static void print(byte[] array) {
+        Byte[] bytes = new Byte[array.length];
+        for (int i = 0; i < array.length; i++) {
+            bytes[i] = array[i];
+        }
+        print(bytes);
     }
 
     public static void swap(int[] nums, int a, int b) {
