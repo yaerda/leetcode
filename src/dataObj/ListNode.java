@@ -7,19 +7,6 @@ public class ListNode {
     public ListNode() {
     }
 
-//    public ListNode(Integer[] nums) {
-//        ListNode n = null;
-//        n = this;
-//        for (int num : nums) {
-//            if (n.val == null) {
-//                n.val = num;
-//            } else {
-//                n.next = new ListNode(num);
-//                n = n.next;
-//            }
-//        }
-//    }
-
     public ListNode(Integer... nums) {
         ListNode n = null;
         n = this;

@@ -1,3 +1,6 @@
+package swordMeansOffer;
+
+import dataObj.ListNode;
 
 class AddTwoNumbers {
     public static void main(String[] args) {
@@ -24,15 +27,4 @@ class AddTwoNumbers {
         System.out.print(sumNode.val);
         return sumNode;
     }
-
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
 }

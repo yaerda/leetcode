@@ -55,10 +55,6 @@
 
 package leetcode.editor.en;
 
-import tool.Tool;
-
-import java.math.BigDecimal;
-
 public class NumberOf1Bits {
     public static void main(String[] args) {
         Solution solution = new NumberOf1Bits().new Solution();
