@@ -1,4 +1,4 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
 
 class ValidString {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ class ValidString {
     }
 
     private static boolean isValid2(String s) {
-        Stack<Character> cStack = new Stack<Character>();
+        ArrayDeque<Character> cStack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
             switch (c) {
                 case '(':
@@ -35,7 +35,7 @@ class ValidString {
         if (s.isEmpty()) {
             return true;
         }
-        Stack<Character> cStack = new Stack<Character>();
+        ArrayDeque<Character> cStack = new ArrayDeque<>();
 
         for (char c : s.toCharArray()) {
             switch (c) {

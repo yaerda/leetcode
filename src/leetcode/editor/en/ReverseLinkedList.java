@@ -64,14 +64,14 @@ public class ReverseLinkedList {
      */
     class Solution {
         public ListNode reverseList(ListNode head) {
-            ListNode reversedNode = new ListNode(0);
+            ListNode preNode = null;
             while (head != null) {
-                ListNode node = new ListNode(head.val);
-                node.next = reversedNode.next;
-                reversedNode.next = node;
-                head = head.next;
+                ListNode next = head.next;
+                head.next = preNode;
+                preNode = head;
+                head = next;
             }
-            return reversedNode.next;
+            return preNode;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
