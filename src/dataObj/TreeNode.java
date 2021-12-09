@@ -18,6 +18,31 @@ public class TreeNode {
         this.right = right;
     }
 
+    public TreeNode(Integer[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new RuntimeException("Empty tree");
+        }
+        this.val = (nums[0]);
+        this.left = construcTreeNode(nums, 2);
+        this.right = construcTreeNode(nums, 3);
+    }
+
+    private TreeNode construcTreeNode(Integer[] nums, int idx) {
+        if (idx - 1 >= nums.length) {
+            return null;
+        }
+        Integer rootVal = nums[idx - 1];
+        if (rootVal == null) {
+            return null;
+        }
+        TreeNode root = new TreeNode(rootVal);
+        TreeNode left = construcTreeNode(nums, idx * 2);
+        TreeNode right = construcTreeNode(nums, idx * 2 + 1);
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+
     @Override
     public String toString() {
         List<Integer> nodeList = new ArrayList<>();
@@ -25,14 +50,16 @@ public class TreeNode {
         treeNodeQueue.add(this);
         while (!treeNodeQueue.isEmpty()) {
             TreeNode root = treeNodeQueue.poll();
-            nodeList.add(root.val);
-            if (root.left != null) {
-                treeNodeQueue.add(root.left);
+            if (root == null) {
+                nodeList.add(null);
+                continue;
+            } else {
+                nodeList.add(root.val);
             }
-            if (root.right != null) {
-                treeNodeQueue.add(root.right);
-            }
+            treeNodeQueue.add(root.left);
+            treeNodeQueue.add(root.right);
         }
+
         return "[" + nodeList.stream().map(String::valueOf).collect(Collectors.joining(",")) + "]";
     }
 }
