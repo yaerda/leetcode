@@ -41,6 +41,9 @@ public class Tool {
     }
 
     public static void swap(int[] nums, int a, int b) {
+        if (a == b) {
+            return;
+        }
         int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
