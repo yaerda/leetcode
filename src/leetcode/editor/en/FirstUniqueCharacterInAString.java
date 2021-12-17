@@ -27,10 +27,6 @@ package leetcode.editor.en;
 
 import tool.Tool;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class FirstUniqueCharacterInAString {
     public static void main(String[] args) {
         Solution solution = new FirstUniqueCharacterInAString().new Solution();
@@ -43,22 +39,16 @@ public class FirstUniqueCharacterInAString {
             if (s == null || s.isEmpty()) {
                 return -1;
             }
+            int[] arr = new int[26];
             char[] chars = s.toCharArray();
-            LinkedHashMap<Character, Integer> map = new LinkedHashMap();
-            for (int i = 0; i < chars.length; i++) {
-                char c = chars[i];
-                if (map.containsKey(c)) {
-                    map.put(c, -1);
-                } else {
-                    map.put(c, i);
-                }
+            for (char aChar : chars) {
+                arr[aChar - 'a']++;
             }
-            Iterator<Map.Entry<Character, Integer>> it = map.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry<Character, Integer> entry = it.next();
-                if (entry.getValue() != -1) {
-                    return entry.getValue();
+            for (int i = 0; i < chars.length; i++) {
+                if (arr[chars[i] - 'a'] == 1) {
+                    return i;
                 }
+
             }
             return -1;
         }
